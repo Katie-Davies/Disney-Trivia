@@ -2,7 +2,10 @@ import { useState } from 'react'
 import { useGetQuestions } from '../hooks/useGetQuestions'
 
 function Questions() {
-  const [questionNum, setQuestionNum] = useState(0)
+  const [questionNum, setQuestionNum] = useState(1)
+  const [score, setScore] = useState(0)
+  const [name, setName] = useState('')
+  const [input, setInput] = useState('')
   const { data: questions, isLoading, isError } = useGetQuestions()
   if (isLoading) {
     return <p>Loading ...</p>
@@ -18,17 +21,40 @@ function Questions() {
 
     const correctAnswer = questions[questionNum].correct_answer
     const answer = e.target.innerHTML
-    console.log('correct answer', correctAnswer)
-    console.log(answer)
 
-    if (answer === correctAnswer) {
-      return alert('You are correct!')
+    const isCorrect = answer === correctAnswer
+    if (isCorrect) {
+      alert('You are correct!')
+      setScore(score + 1)
+    }
+
+    if (questionNum < 8) {
+      setQuestionNum(questionNum + 1)
     }
   }
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setName(input)
+    setInput('')
+  }
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.target.value
+    setInput(name)
+  }
+  console.log(name)
 
   if (questions)
     return (
       <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder="Your name"
+            type="text"
+            onChange={handleChange}
+            value={input}
+          ></input>
+        </form>
         <h1>Questions</h1>
         <img
           src={questions[questionNum].image_url}
