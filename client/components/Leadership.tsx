@@ -1,4 +1,5 @@
 import { useGetLeaders } from '../hooks/useGetLeaderboard'
+import Header from './Header'
 
 function Leadership() {
   const { data: leaderboard, isLoading, isError } = useGetLeaders()
@@ -13,6 +14,7 @@ function Leadership() {
   if (leaderboard)
     return (
       <div>
+        <Header />
         <h1>Leadership</h1>
 
         {sortedLeadershipBoard?.map((player) => {

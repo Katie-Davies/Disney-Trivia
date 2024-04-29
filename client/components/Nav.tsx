@@ -1,16 +1,18 @@
 import { useNavigate } from 'react-router-dom'
+import Header from './Header'
 
 function Nav() {
   const navigate = useNavigate()
 
-  function handleReturnHome() {
-    navigate('/')
+  function handleLeadershipBoard() {
+    navigate('/leadershipboard')
   }
 
   return (
-    <div>
-      <button className="homeLink" onClick={handleReturnHome}>
-        Disney Trivia
+    <div className="nav-container">
+      <Header />
+      <button className="homeLink" onClick={handleLeadershipBoard}>
+        Leadership Board
       </button>
     </div>
   )

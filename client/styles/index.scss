@@ -95,6 +95,11 @@ cursor: pointer;
   transform: scale(1.2);
 }
 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .homeLink {
   background: transparent;
   font-family: "Pacifico", cursive;
@@ -103,3 +108,4 @@ cursor: pointer;
   color: #C65BCF;
   text-shadow: 1px  1px 0 white,
 }
+
