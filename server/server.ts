@@ -9,7 +9,7 @@ const server = express()
 server.use(express.json())
 
 server.use('/api/v1/leadership', leadership)
-server.use('/api/v1/leadership', questions)
+server.use('/api/v1/questions', questions)
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))

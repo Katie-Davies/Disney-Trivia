@@ -18,9 +18,8 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const data = req.body
-    const leaderboard = await db.addPlayer(data)
+    await db.addPlayer(data)
 
-    res.json(leaderboard)
     res.sendStatus(200)
   } catch (error) {
     console.log(error)

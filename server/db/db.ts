@@ -11,7 +11,7 @@ export async function getAllQuestions() {
 
 // get leadership board
 export async function getLeadershipBoard() {
-  return db('leaderhip').select()
+  return db('leadership').select()
 }
 
 //add player to leadership
