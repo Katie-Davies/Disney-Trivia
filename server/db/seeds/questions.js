@@ -4,11 +4,12 @@
  */
 export async function seed(knex) {
   // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
+  await knex('questions').del()
+  await knex('questions').insert([
     {
       id: 1,
       question_text: 'In which Disney movie does Mickey Mouse appear?',
+      image_url: 'client/assets/images/mickeymouse.png',
       correct_answer: 'Fantasia',
       option1: 'Steamboat Willie',
       option2: 'The Sorcerers Apprentice',
@@ -19,9 +20,10 @@ export async function seed(knex) {
     {
       id: 2,
       question_text: 'Where does Cinderella live?',
+      image_url: 'client/assets/images/cinderella.png',
       correct_answer: 'Cinderella Castle',
       option1: 'Beasts Castle',
-      option2: 'Arendelle Castle',
+      option2: 'Cinderella Castle',
       option3: 'Elsas Ice Palace',
       option4: 'Agrabah Palace',
       character_id: 5,
@@ -29,9 +31,10 @@ export async function seed(knex) {
     {
       id: 3,
       question_text: 'What is Donald Ducks residence?',
+      image_url: 'client/assets/images/donaldduck.png',
       correct_answer: 'Duckburg',
       option1: 'Goofys Playhouse',
-      option2: 'Mickeys Toontown',
+      option2: 'Duckburg',
       option3: 'Arendelle',
       option4: 'The Dwarfs Cottage',
       character_id: 3,
@@ -39,9 +42,10 @@ export async function seed(knex) {
     {
       id: 4,
       question_text: 'Which Disney character lives in Mickeys Toontown?',
+      image_url: 'client/assets/images/mickeystoontown.png',
       correct_answer: 'Minnie Mouse',
       option1: 'Donald Duck',
-      option2: 'Goofy',
+      option2: 'Minnie Mouse',
       option3: 'Cinderella',
       option4: 'Snow White',
       character_id: 2,
@@ -49,28 +53,31 @@ export async function seed(knex) {
     {
       id: 5,
       question_text: 'Which Disney character sings "Let It Go"?',
+      image_url: 'client/assets/images/sing.png',
       correct_answer: 'Elsa',
       option1: 'Anna',
       option2: 'Moana',
-      option3: 'Rapunzel',
+      option3: 'Elsa',
       option4: 'Merida',
       character_id: 6,
     },
     {
       id: 6,
       question_text: 'What is the name of Moanas pet rooster?',
+      image_url: 'client/assets/images/moana.png',
       correct_answer: 'Heihei',
       option1: 'Pua',
       option2: 'Kakamora',
       option3: 'Tamatoa',
-      option4: 'Maui',
+      option4: 'Heihei',
       character_id: 7,
     },
     {
       id: 7,
       question_text: 'Who is the father of Simba in "The Lion King"?',
+      image_url: 'client/assets/images/lionking.png',
       correct_answer: 'Mufasa',
-      option1: 'Scar',
+      option1: 'Mufasa',
       option2: 'Timon',
       option3: 'Rafiki',
       option4: 'Zazu',
@@ -79,10 +86,11 @@ export async function seed(knex) {
     {
       id: 8,
       question_text: 'In which Disney movie does Elsa appear?',
+      image_url: 'client/assets/images/elsa.png',
       correct_answer: 'Frozen',
       option1: 'Tangled',
       option2: 'Moana',
-      option3: 'Brave',
+      option3: 'Frozen',
       option4: 'Coco',
       character_id: 6,
     },
