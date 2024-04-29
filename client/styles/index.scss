@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 
+
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 html, 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Pacifico", cursive;
   background-color: darkblue;
 }
 
@@ -14,6 +22,23 @@ img {
 
 .answer-button {
   border-style: dashed;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+}
+.scoreboard-div {
+  width: 20rem;
+  height:auto;
+  border-color: aliceblue;
+  border-width: 2px;
+  border-style: solid;
+}
+p {
+  text-align: center;
+  color:azure;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 // .layout {
