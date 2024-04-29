@@ -9,6 +9,9 @@ export async function up(knex) {
     table.string('question_text')
     table.string('correct_answer')
     table.string('option1')
+    table.string('option2')
+    table.string('option3')
+    table.string('option4')
     table.string('character_id').references('characters.id')
   })
 }
