@@ -12,9 +12,9 @@ export async function seed(knex) {
       image_url: 'client/assets/images/mickeymouse.png',
       correct_answer: 'Fantasia',
       option1: 'Steamboat Willie',
-      option2: 'The Sorcerers Apprentice',
-      option3: 'Fantasia 2000',
-      option4: 'Mickeys Once Upon a Christmas',
+      option2: 'The Sword in the Stone',
+      option3: 'Fantasia',
+      option4: 'Rescue Rangers',
       character_id: 1,
     },
     {

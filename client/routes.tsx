@@ -1,3 +1,13 @@
 import { createRoutesFromElements, Route } from 'react-router-dom'
-import App from './components/App.tsx'
-export default createRoutesFromElements(<Route index element={<App />} />)
+
+import Layout from './components/Layout.tsx'
+import Homepage from './components/Homepage.tsx'
+import Questions from './components/Questions.tsx'
+import Leadership from './components/Leadership.tsx'
+export default createRoutesFromElements(
+  <Route path="/" element={<Layout />}>
+    <Route index element={<Homepage />} />
+    <Route path="/game" element={<Questions />} />
+    <Route path="/leadershipboard" element={<Leadership />} />
+  </Route>,
+)
