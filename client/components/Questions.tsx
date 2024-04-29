@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useGetQuestions } from '../hooks/useGetQuestions'
 import { useNavigate } from 'react-router-dom'
 import { useAddPlayer } from '../hooks/useAddPlayer'
+import Nav from './Nav'
 function Questions() {
   const [questionNum, setQuestionNum] = useState(0)
   const [score, setScore] = useState(0)
@@ -57,6 +58,7 @@ function Questions() {
   if (questions)
     return (
       <div>
+        <Nav />
         <form onSubmit={handleSubmit}>
           <input
             placeholder="Your name"
