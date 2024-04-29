@@ -4,7 +4,7 @@ export default function Layout() {
   return (
     <>
       <header>
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
+        <h1>Disney Trivia</h1>
       </header>
       <main>
         <Outlet />
