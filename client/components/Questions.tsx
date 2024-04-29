@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { useGetQuestions } from '../hooks/useGetQuestions'
-
+import { useNavigate } from 'react-router-dom'
+import { useAddPlayer } from '../hooks/useAddPlayer'
 function Questions() {
-  const [questionNum, setQuestionNum] = useState(1)
+  const [questionNum, setQuestionNum] = useState(0)
   const [score, setScore] = useState(0)
-  const [name, setName] = useState('')
+  const [name, setName] = useState(null)
   const [input, setInput] = useState('')
+  const navigate = useNavigate()
+  const player = useAddPlayer()
   const { data: questions, isLoading, isError } = useGetQuestions()
   if (isLoading) {
     return <p>Loading ...</p>
@@ -26,10 +29,17 @@ function Questions() {
     if (isCorrect) {
       alert('You are correct!')
       setScore(score + 1)
+      console.log(score)
     }
 
-    if (questionNum < 8) {
+    if (questionNum < 7) {
       setQuestionNum(questionNum + 1)
+    } else {
+      const playerData = name
+        ? { name: name, score: score }
+        : { name: 'guest', score: score }
+      player.mutate(playerData)
+      navigate('/leadershipboard')
     }
   }
 

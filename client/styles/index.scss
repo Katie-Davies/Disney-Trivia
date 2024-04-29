@@ -3,6 +3,7 @@
 html, 
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: darkblue;
 }
 
 img {
@@ -14,3 +15,11 @@ img {
 .answer-button {
   border-style: dashed;
 }
+
+// .layout {
+//   background-image: url('client/assets/images/disneybg.jpg');
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   width: 100vw;
+//   height: 100vh;
+// }
