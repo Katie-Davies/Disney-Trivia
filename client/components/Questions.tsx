@@ -11,9 +11,20 @@ function Questions() {
     return <p>There has been an error!</p>
   }
 
-  // const handleClick(e) {
+  function handleClick(e) {
+    const buttons = document.querySelectorAll(
+      '.answer-button',
+    ) as NodeListOf<HTMLButtonElement>
 
-  // }
+    const correctAnswer = questions[questionNum].correct_answer
+    const answer = e.target.innerHTML
+    console.log('correct answer', correctAnswer)
+    console.log(answer)
+
+    if (answer === correctAnswer) {
+      return alert('You are correct!')
+    }
+  }
 
   if (questions)
     return (
@@ -24,10 +35,18 @@ function Questions() {
           alt={questions[questionNum].correct_answer}
         />
         <h1>{questions[questionNum].question_text}</h1>
-        <button>{questions[questionNum].option1}</button>
-        <button>{questions[questionNum].option2}</button>
-        <button>{questions[questionNum].option3}</button>
-        <button>{questions[questionNum].option4}</button>
+        <button className="answer-button" onClick={handleClick}>
+          {questions[questionNum].option1}
+        </button>
+        <button className="answer-button" onClick={handleClick}>
+          {questions[questionNum].option2}
+        </button>
+        <button className="answer-button" onClick={handleClick}>
+          {questions[questionNum].option3}
+        </button>
+        <button className="answer-button" onClick={handleClick}>
+          {questions[questionNum].option4}
+        </button>
       </div>
     )
 }
