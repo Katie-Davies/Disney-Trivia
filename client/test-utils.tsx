@@ -1,58 +1,41 @@
-// // @vitest-environment jsdom
-
-import { afterEach } from 'vitest'
+import { beforeEach, expect } from 'vitest'
 import { cleanup, render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import {
-  Route,
-  RouterProvider,
-  createMemoryRouter,
-  createRoutesFromElements,
-} from 'react-router-dom'
+import * as matchers from '@testing-library/jest-dom/matchers'
 import '@testing-library/jest-dom/vitest'
 
-import routes from './routes'
+import { createMemoryRouter, RouterProvider } from 'react-router-dom'
+import userEvent from '@testing-library/user-event'
+import routes from './routes.tsx'
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-afterEach(cleanup)
+beforeEach(cleanup)
+expect.extend(matchers)
 
-export function renderComponent(component: JSX.Element) {
+export function renderApp(location: string) {
   const user = userEvent.setup()
-  return { user, ...render(component) }
-}
-
-export function renderWithRouter(location = '/') {
   const router = createMemoryRouter(routes, {
     initialEntries: [location],
   })
 
-  userEvent.setup()
-  return render(<RouterProvider router={router} />)
-}
+  const customConsole = {
+    log: console.log,
+    warn: console.warn,
+    error: () => {}, // Provide a no-op function for error logging
+  }
 
-export function renderWithQuery(component: JSX.Element) {
-  const router = createMemoryRouter(
-    createRoutesFromElements(<Route path="/" element={component} />),
-    {
-      initialEntries: ['/'],
-    },
-  )
-
-  const user = userEvent.setup()
   const queryClient = new QueryClient({
     defaultOptions: {
-      // NOTE: if we don't set this, then react-query will
-      // retry requests during tests which may hide errors
-      // when the test times out
-      queries: { retry: false },
+      queries: {
+        retry: false,
+      },
     },
+    logger: customConsole,
   })
-  return {
-    user,
-    ...render(
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>,
-    ),
-  }
+  const container = render(
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>,
+  )
+  return { user, ...container }
 }
