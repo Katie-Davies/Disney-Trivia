@@ -11,12 +11,13 @@
 html, 
 body {
   font-family: "Pacifico", cursive;
-  background-color: darkblue;
+  background-color: #10439F;
 }
 
 img {
+  margin-top: 10px;
   max-width: 400px;
-  height: auto;
+  max-height: 500px;
 
 }
 
@@ -26,7 +27,14 @@ img {
 
 .scoreboard {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  background-color: #874CCC;
+  border-radius: 10px;
+width: 75%;
+}
+.scoreboard-container {
+  margin: 5%;
 }
 .scoreboard-div {
   width: 20rem;
@@ -34,12 +42,16 @@ img {
   border-color: aliceblue;
   border-width: 2px;
   border-style: solid;
+  background-color: #C65BCF;
+  
 }
 p {
   text-align: center;
   color:azure;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+
 
 // .layout {
 //   background-image: url('client/assets/images/disneybg.jpg');
@@ -48,3 +60,150 @@ p {
 //   width: 100vw;
 //   height: 100vh;
 // }
+
+.homepage {
+  display: flex;
+  justify-content: center;
+  height: 45rem;
+
+}
+
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #C65BCF;
+  width: 75%;
+  border-radius: 10%;
+  margin-top: 20%;
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+}
+
+.homepage-container h1 {
+  font-size: 5rem;
+  color: white
+}
+
+// #874CCC;
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-container button {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: medium;
+  background-color: #874CCC;
+width: 25%;
+height: 10%;
+border-style: solid;
+border-radius: 10%;
+  border-width: 3px;
+  border-color: white;
+  color: white;
+transform: scale(1);
+cursor: pointer;
+}
+.homepage-container button:hover {
+  transform: scale(1.2);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeLink {
+  background: transparent;
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+  border: none;
+  color: #C65BCF;
+  text-shadow: 1px  1px 0 white,
+}
+
+
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: #874CCC;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.border {
+  border-style: solid;
+  border-color: white;
+  width: 50%;
+  border-width: 5px;
+}
+
+
+.form-container form label {
+color: white;
+text-shadow: 1px  1px 0 #C65BCF;
+margin: 5%;
+font-size: 2rem;
+}
+
+.form-container form label input {
+  margin-top: 5%;
+  border-color: #874CCC;
+  height: 25%;
+  border-radius: 40px;
+}
+
+.question-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+  align-items: center;
+  // justify-content: center;
+  width: 100%;
+  
+  background-color: #C65BCF;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.question-container h1 {
+  color: #10439F;
+// text-shadow: 1px  1px 0 white;
+margin: 5%;
+font-size: 2rem;
+text-align: center;
+}
+.question-container img {
+border-style: solid;
+border-color: #10439F;
+border-width: 5px;
+border-radius: 20px;
+
+}
+
+.answer-button {
+  background-color: white;
+  border-style: solid;
+  border-color: #10439F;
+  color: #874CCC;
+  font-size: large;
+  border-radius: 40px;
+  padding: 20px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 5%;
+  font-family: fantasy;
+}
+
+h1 {
+  text-align: center;
+}
