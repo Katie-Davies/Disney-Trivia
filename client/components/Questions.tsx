@@ -3,6 +3,9 @@ import { useGetQuestions } from '../hooks/useGetQuestions'
 import { useNavigate } from 'react-router-dom'
 import { useAddPlayer } from '../hooks/useAddPlayer'
 import Nav from './Nav'
+import { Slide, toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 function Questions() {
   const [questionNum, setQuestionNum] = useState(0)
   const [score, setScore] = useState(0)
@@ -11,12 +14,15 @@ function Questions() {
   const navigate = useNavigate()
   const player = useAddPlayer()
   const { data: questions, isLoading, isError } = useGetQuestions()
+
   if (isLoading) {
     return <p>Loading ...</p>
   }
   if (isError) {
     return <p>There has been an error!</p>
   }
+
+  // Set global configuration options
 
   function handleClick(e) {
     const buttons = document.querySelectorAll(
@@ -28,20 +34,24 @@ function Questions() {
 
     const isCorrect = answer === correctAnswer
     if (isCorrect) {
-      alert('You are correct!')
+      toast('You are correct!', { className: 'toast-message', autoClose: 3000 })
       setScore(score + 1)
-      console.log(score)
-    }
-
-    if (questionNum < 7) {
-      setQuestionNum(questionNum + 1)
     } else {
-      const playerData = name
-        ? { name: name, score: score }
-        : { name: 'guest', score: score }
-      player.mutate(playerData)
-      navigate('/leadershipboard')
+      toast.error('Sorry, wrong answer!', {
+        autoClose: 3000,
+      })
     }
+    setTimeout(() => {
+      if (questionNum < 7) {
+        setQuestionNum(questionNum + 1)
+      } else {
+        const playerData = name
+          ? { name: name, score: score }
+          : { name: 'guest', score: score }
+        player.mutate(playerData)
+        navigate('/leadershipboard')
+      }
+    }, 4000)
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -59,6 +69,14 @@ function Questions() {
     return (
       <>
         <Nav />
+        <div>
+          <ToastContainer
+            transition={Slide}
+            position="top-center"
+            className="pop-up"
+            autoClose={3000}
+          />
+        </div>
         <div>
           <div className="flex">
             {!name && (
