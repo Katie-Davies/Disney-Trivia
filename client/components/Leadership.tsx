@@ -13,9 +13,7 @@ function Leadership() {
   if (isLoading) {
     return <p>Loading ...</p>
   }
-  if (isError) {
-    return <p>There has been an error!</p>
-  }
+
   const sortedLeadershipBoard = leaderboard?.sort((a, b) => b.score - a.score)
 
   if (leaderboard)

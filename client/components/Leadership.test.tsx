@@ -62,7 +62,7 @@ describe('leadership', () => {
     //ACT
     renderApp('/leadershipboard')
     await waitForElementToBeRemoved(() => screen.getByText(/loading/i))
-    const errorMsg = screen.getByText('There has been an error!')
+    const errorMsg = screen.getByText('There has been an error!q')
     expect(errorMsg).toBeInTheDocument()
   })
 })
