@@ -15,8 +15,9 @@ body {
 }
 
 img {
+  margin-top: 10px;
   max-width: 400px;
-  height: auto;
+  max-height: 500px;
 
 }
 
@@ -78,9 +79,15 @@ p {
 
 // #874CCC;
 
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
 .homepage-container button {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-background-color: #874CCC;
+font-size: medium;
+  background-color: #874CCC;
 width: 25%;
 height: 10%;
 border-style: solid;
@@ -109,3 +116,76 @@ cursor: pointer;
   text-shadow: 1px  1px 0 white,
 }
 
+
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: #874CCC;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.border {
+  border-style: solid;
+  border-color: white;
+  width: 50%;
+  
+}
+
+
+.form-container form label {
+color: white;
+text-shadow: 1px  1px 0 #C65BCF;
+margin: 5%;
+font-size: 2rem;
+}
+
+.form-container form label input {
+  margin-top: 5%;
+  border-color: #874CCC;
+  height: 25%;
+  border-radius: 40px;
+}
+
+.question-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+  align-items: center;
+  // justify-content: center;
+  width: 100%;
+  background-color: #C65BCF;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.question-container h1 {
+  color: white;
+text-shadow: 1px  1px 0 #C65BCF;
+margin: 5%;
+font-size: 2rem;
+text-align: center;
+}
+.question-container img {
+border-style: solid;
+border-color: #10439F;
+border-width: 5px;
+border-radius: 20px;
+
+}
+
+.answer-button {
+  background-color: white;
+  border-style: solid;
+  border-color: #10439F;
+  color: #874CCC;
+  font-size: medium;
+  border-radius: 40px;
+  padding: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

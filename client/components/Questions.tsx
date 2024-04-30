@@ -57,35 +57,53 @@ function Questions() {
 
   if (questions)
     return (
-      <div>
+      <>
         <Nav />
-        <form onSubmit={handleSubmit}>
-          <input
-            placeholder="Your name"
-            type="text"
-            onChange={handleChange}
-            value={input}
-          ></input>
-        </form>
-        <h1>Questions</h1>
-        <img
-          src={questions[questionNum].image_url}
-          alt={questions[questionNum].correct_answer}
-        />
-        <h1>{questions[questionNum].question_text}</h1>
-        <button className="answer-button" onClick={handleClick}>
-          {questions[questionNum].option1}
-        </button>
-        <button className="answer-button" onClick={handleClick}>
-          {questions[questionNum].option2}
-        </button>
-        <button className="answer-button" onClick={handleClick}>
-          {questions[questionNum].option3}
-        </button>
-        <button className="answer-button" onClick={handleClick}>
-          {questions[questionNum].option4}
-        </button>
-      </div>
+        <div>
+          <div className="flex">
+            {!name && (
+              <div className="form-container border">
+                <form onSubmit={handleSubmit} className="form-container">
+                  <label htmlFor="player" className="form-container">
+                    Enter your Name:
+                    <input
+                      placeholder="Your name"
+                      name="player"
+                      type="text"
+                      onChange={handleChange}
+                      value={input}
+                    ></input>
+                  </label>
+                </form>
+              </div>
+            )}
+          </div>
+          <div className="flex">
+            <h1 className="homeLink">Question {questionNum + 1}</h1>
+          </div>
+          <div className="question-container border">
+            <img
+              src={questions[questionNum].image_url}
+              alt={questions[questionNum].correct_answer}
+            />
+            <h1>{questions[questionNum].question_text}</h1>
+            <div>
+              <button className="answer-button" onClick={handleClick}>
+                {questions[questionNum].option1}
+              </button>
+              <button className="answer-button" onClick={handleClick}>
+                {questions[questionNum].option2}
+              </button>
+              <button className="answer-button" onClick={handleClick}>
+                {questions[questionNum].option3}
+              </button>
+              <button className="answer-button" onClick={handleClick}>
+                {questions[questionNum].option4}
+              </button>
+            </div>
+          </div>
+        </div>
+      </>
     )
 }
 
