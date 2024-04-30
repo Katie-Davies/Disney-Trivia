@@ -4,7 +4,6 @@ import {
   screen,
   waitFor,
   waitForElementToBeRemoved,
-  within,
 } from '@testing-library/react'
 import { renderApp } from '../test-utils'
 import nock from 'nock'
@@ -62,7 +61,8 @@ describe('leadership', () => {
     //ACT
     renderApp('/leadershipboard')
     await waitForElementToBeRemoved(() => screen.getByText(/loading/i))
-    const errorMsg = screen.getByText('There has been an error!q')
+    const errorMsg = screen.getByText('There has been an error!')
     expect(errorMsg).toBeInTheDocument()
+    expect(scope.isDone()).toBe(true)
   })
 })
