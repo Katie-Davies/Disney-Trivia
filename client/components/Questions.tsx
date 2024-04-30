@@ -78,30 +78,34 @@ function Questions() {
               </div>
             )}
           </div>
-          <div className="flex">
-            <h1 className="homeLink">Question {questionNum + 1}</h1>
-          </div>
-          <div className="question-container border">
-            <img
-              src={questions[questionNum].image_url}
-              alt={questions[questionNum].correct_answer}
-            />
-            <h1>{questions[questionNum].question_text}</h1>
-            <div>
-              <button className="answer-button" onClick={handleClick}>
-                {questions[questionNum].option1}
-              </button>
-              <button className="answer-button" onClick={handleClick}>
-                {questions[questionNum].option2}
-              </button>
-              <button className="answer-button" onClick={handleClick}>
-                {questions[questionNum].option3}
-              </button>
-              <button className="answer-button" onClick={handleClick}>
-                {questions[questionNum].option4}
-              </button>
-            </div>
-          </div>
+          {name && (
+            <>
+              <div className="flex">
+                <h1 className="homeLink">Question {questionNum + 1}</h1>
+              </div>
+              <div className="question-container border">
+                <img
+                  src={questions[questionNum].image_url}
+                  alt={questions[questionNum].correct_answer}
+                />
+                <h1>{questions[questionNum].question_text}</h1>
+                <div>
+                  <button className="answer-button" onClick={handleClick}>
+                    {questions[questionNum].option1}
+                  </button>
+                  <button className="answer-button" onClick={handleClick}>
+                    {questions[questionNum].option2}
+                  </button>
+                  <button className="answer-button" onClick={handleClick}>
+                    {questions[questionNum].option3}
+                  </button>
+                  <button className="answer-button" onClick={handleClick}>
+                    {questions[questionNum].option4}
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </>
     )
