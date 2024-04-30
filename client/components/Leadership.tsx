@@ -15,23 +15,28 @@ function Leadership() {
     return (
       <div>
         <Header />
-        <h1>Leadership</h1>
 
-        {sortedLeadershipBoard?.map((player) => {
-          return (
-            <>
-              <div className="scoreboard">
-                <div className="scoreboard-div">
-                  <p key={player.id}>{player.name}</p>
-                </div>
-                <div className="scoreboard-div">
-                  <p>{player.score}</p>
-                </div>
-              </div>
-            </>
-          )
-        })}
-
+        <h1 className="homeLink">Leadership Board</h1>
+        <div className="flex">
+          <div className="scoreboard">
+            <div className="scoreboard-container">
+              {sortedLeadershipBoard?.map((player) => {
+                return (
+                  <>
+                    <div className="flex">
+                      <div className="scoreboard-div">
+                        <p key={player.id}>{player.name}</p>
+                      </div>
+                      <div className="scoreboard-div">
+                        <p>{player.score}</p>
+                      </div>
+                    </div>
+                  </>
+                )
+              })}
+            </div>
+          </div>
+        </div>
         {/* {leaderboard.map((player) => {
             return <td key={player.id}>{player.score}</td>
           })} */}

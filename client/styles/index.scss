@@ -27,7 +27,14 @@ img {
 
 .scoreboard {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  background-color: #874CCC;
+  border-radius: 10px;
+width: 75%;
+}
+.scoreboard-container {
+  margin: 5%;
 }
 .scoreboard-div {
   width: 20rem;
@@ -35,12 +42,16 @@ img {
   border-color: aliceblue;
   border-width: 2px;
   border-style: solid;
+  background-color: #C65BCF;
+  
 }
 p {
   text-align: center;
   color:azure;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+
 
 // .layout {
 //   background-image: url('client/assets/images/disneybg.jpg');
@@ -165,8 +176,8 @@ font-size: 2rem;
 }
 
 .question-container h1 {
-  color: white;
-text-shadow: 1px  1px 0 #C65BCF;
+  color: #10439F;
+// text-shadow: 1px  1px 0 white;
 margin: 5%;
 font-size: 2rem;
 text-align: center;
@@ -184,10 +195,15 @@ border-radius: 20px;
   border-style: solid;
   border-color: #10439F;
   color: #874CCC;
-  font-size: medium;
+  font-size: large;
   border-radius: 40px;
   padding: 20px;
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 5%;
+  font-family: fantasy;
+}
+
+h1 {
+  text-align: center;
 }
